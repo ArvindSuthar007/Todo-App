@@ -1,0 +1,16 @@
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    border: 1.5px solid #44444485;
+    border-radius: 0.5rem;
+    background-color: #FFD7BA;
+}
+input {
+    border: 1.5px solid #44444485;
+    border-radius: 0.5rem;
+    background-color: #FFD7BA;
+}
