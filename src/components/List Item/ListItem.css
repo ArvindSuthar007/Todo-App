@@ -12,12 +12,16 @@
   align-items: center;
 }
 
-span {
-  padding-left: 8px;
+.checkbox-text-wrapper {
+  width: 50%;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
-.mark-button-container {
-  width: 6%;
+.buttons-wrapper {
+  width: 7%;
   display: flex;
   justify-content: space-evenly;
 }

@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-button {
+.search-container button {
   border: 1.5px solid #44444485;
   border-radius: 0.8rem;
   background-color: #ffd7ba;
   height: 1.8rem;
 }
 
-input {
+.search-container input {
   border: 1.5px solid #44444485;
   border-radius: 0.8rem;
   background-color: #ffd7ba;

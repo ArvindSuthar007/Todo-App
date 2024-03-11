@@ -22,6 +22,14 @@ function App() {
     setList([...list, newitem]);
   };
 
+  const EditItem = (key, newtext) => {
+    setList(
+      list.map((item) => {
+        if (item.key === key) return { ...item, inputtext: newtext };
+      })
+    );
+  };
+
   const deleteItem = (item) => {
     setList(list.filter((i) => i.key !== item.key));
   };
@@ -53,12 +61,14 @@ function App() {
         deleteItem={deleteItem}
         toggleMark={toggleMark}
         trueCount={trueCount}
+        EditItem={EditItem}
       />
       <TodoListChecked
         list={list}
         deleteItem={deleteItem}
         toggleMark={toggleMark}
         trueCount={trueCount}
+        EditItem={EditItem}
       />
       <Footer />
     </>

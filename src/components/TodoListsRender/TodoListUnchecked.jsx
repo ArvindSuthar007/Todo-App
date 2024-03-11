@@ -5,6 +5,7 @@ export default function TodoListUnchecked({
   deleteItem,
   toggleMark,
   trueCount,
+  EditItem,
 }) {
   return (
     <>
@@ -38,6 +39,7 @@ export default function TodoListUnchecked({
                         Inputobj={item}
                         deleteItem={deleteItem}
                         toggleMark={toggleMark}
+                        EditItem={EditItem}
                       />
                     </li>
                   )
