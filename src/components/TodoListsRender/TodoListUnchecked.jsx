@@ -9,13 +9,7 @@ export default function TodoListUnchecked({
 }) {
   return (
     <>
-      <h2
-        style={{
-          float: "center",
-        }}
-      >
-        Items yet to complete :-{" "}
-      </h2>
+      <h2>Items yet to complete :- </h2>
       <div
         style={{
           paddingLeft: "2.5rem",
