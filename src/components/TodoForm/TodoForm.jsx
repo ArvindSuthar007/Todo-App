@@ -9,9 +9,14 @@ export default function TodoForm({ addItem }) {
   };
 
   const handleSubmitClick = () => {
-    const obj = { key: null, inputtext: inputValue, mark: false };
-    addItem(obj);
-    setInputValue("");
+    const updatedValue = inputValue.trim();
+    if (updatedValue !== "") {
+      const obj = { key: null, inputtext: updatedValue, mark: false };
+      addItem(obj);
+      setInputValue("");
+    } else {
+      setInputValue("");
+    }
   };
 
   function keypress(event) {

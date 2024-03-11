@@ -26,6 +26,7 @@ function App() {
     setList(
       list.map((item) => {
         if (item.key === key) return { ...item, inputtext: newtext };
+        else return item;
       })
     );
   };
