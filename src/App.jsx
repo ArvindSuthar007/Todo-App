@@ -1,8 +1,8 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import TodoForm from "./components/TodoForm/TodoForm";
-import TodoListChecked from "./components/TodoListsRender/TodoListChecked";
-import TodoListUnchecked from "./components/TodoListsRender/TodoListUnchecked";
+import TodoList from "./components/TodoList";
+import DialogBox from "./components/DialogBox";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
@@ -12,6 +12,15 @@ function App() {
   const [list, setList] = useState(items);
   const [count, setCount] = useState(2);
   const [trueCount, setTrueCount] = useState(0);
+  const [dialogText, setDialogText] = useState("");
+  const [hider, setHider] = useState("none");
+
+  const showDialogBox = () => {
+    setHider("flex");
+    setTimeout(() => {
+      setHider("none");
+    }, 5000);
+  };
 
   const addItem = (newitem) => {
     newitem = { ...newitem, key: count };
@@ -20,6 +29,8 @@ function App() {
     setCount(num);
 
     setList([...list, newitem]);
+    setDialogText("added");
+    showDialogBox();
   };
 
   const EditItem = (key, newtext) => {
@@ -29,15 +40,17 @@ function App() {
         else return item;
       })
     );
+    setDialogText("Edited Successfully");
+    showDialogBox();
   };
 
   const deleteItem = (item) => {
     setList(list.filter((i) => i.key !== item.key));
+    setDialogText("deleted");
+    showDialogBox();
   };
 
   const toggleMark = (key) => {
-    console.log("toggled");
-
     setList(() => {
       let updatedList = list.map((item) => {
         if (item.key === key) return { ...item, mark: !item.mark };
@@ -56,21 +69,19 @@ function App() {
   return (
     <>
       <NavBar />
+
       <TodoForm addItem={addItem} />
-      <TodoListUnchecked
+
+      <TodoList
         list={list}
         deleteItem={deleteItem}
         toggleMark={toggleMark}
         trueCount={trueCount}
         EditItem={EditItem}
       />
-      <TodoListChecked
-        list={list}
-        deleteItem={deleteItem}
-        toggleMark={toggleMark}
-        trueCount={trueCount}
-        EditItem={EditItem}
-      />
+
+      <DialogBox text={dialogText} hider={hider} />
+
       <Footer />
     </>
   );
