@@ -7,35 +7,44 @@ import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 const items = [{ key: 1, inputtext: "a random demo text", mark: false }];
+let timeoutId;
 
-let counting = 1;
 function App() {
   const [list, setList] = useState(items);
-  const [count, setCount] = useState(2);
+
+  const [listKeyCount, setListKeyCount] = useState(2);
+  const [falseMarkListCount, setFalseMarkListCount] = useState(1);
 
   const [dialogText, setDialogText] = useState("");
-  const [hider, setHider] = useState("none");
+  const [dialogflag, setDialogFlag] = useState(false);
 
-  const showDialogBox = () => {
-    setHider("flex");
-    setTimeout(() => {
-      setHider("none");
+  const showDialogBox = (text) => {
+    setDialogText(text);
+
+    if (timeoutId) clearTimeout(timeoutId);
+
+    setDialogFlag(true);
+    timeoutId = setTimeout(() => {
+      setDialogFlag(false);
     }, 5000);
   };
 
-  const addItem = (newitem) => {
-    newitem = { ...newitem, key: count };
+  const countingUpdater = (List) => {
+    setFalseMarkListCount(List.filter((i) => !i.mark).length);
+  };
 
-    const num = count + 1;
-    setCount(num);
+  const addItem = (newitem) => {
+    newitem = { ...newitem, key: listKeyCount };
+
+    const num = listKeyCount + 1;
+    setListKeyCount(num);
 
     const updatedList = [...list, newitem];
-    counting = updatedList.filter((i) => !i.mark).length;
+    countingUpdater(updatedList);
 
     setList(updatedList);
 
-    setDialogText("added");
-    showDialogBox();
+    showDialogBox("added");
   };
 
   const EditItem = (key, newtext) => {
@@ -45,19 +54,18 @@ function App() {
         else return item;
       })
     );
-    setDialogText("Edited");
-    showDialogBox();
+
+    showDialogBox("Edited");
   };
 
   const deleteItem = (item) => {
     const updatedList = list.filter((i) => i.key !== item.key);
 
-    counting = updatedList.filter((i) => !i.mark).length;
+    countingUpdater(updatedList);
 
     setList(updatedList);
 
-    setDialogText("deleted");
-    showDialogBox();
+    showDialogBox("Deleted");
   };
 
   const toggleMark = (key) => {
@@ -66,7 +74,7 @@ function App() {
       else return item;
     });
 
-    counting = updatedList.filter((i) => !i.mark).length;
+    countingUpdater(updatedList);
 
     setList(updatedList);
   };
@@ -82,10 +90,10 @@ function App() {
         deleteItem={deleteItem}
         toggleMark={toggleMark}
         EditItem={EditItem}
-        counting={counting}
+        falseMarkListCount={falseMarkListCount}
       />
 
-      <DialogBox text={dialogText} hider={hider} />
+      {dialogflag && <DialogBox text={dialogText} />}
 
       <Footer />
     </>

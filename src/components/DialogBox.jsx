@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function DialogBox({ text, hider }) {
+export default function DialogBox({ text }) {
   return (
     <div
       style={{
@@ -14,7 +14,7 @@ export default function DialogBox({ text, hider }) {
         zIndex: "2",
         width: "10rem",
 
-        display: hider,
+        display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
