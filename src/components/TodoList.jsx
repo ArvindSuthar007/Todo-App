@@ -4,8 +4,8 @@ export default function TodoListUnchecked({
   list,
   deleteItem,
   toggleMark,
-  trueCount,
   EditItem,
+  counting,
 }) {
   return (
     <>
@@ -21,7 +21,7 @@ export default function TodoListUnchecked({
             listStyle: "none",
           }}
         >
-          {list.length - trueCount > 0 ? (
+          {list.length > 0 && counting > 0 ? (
             list.map(
               (item) =>
                 item.mark === false && (
@@ -53,7 +53,7 @@ export default function TodoListUnchecked({
             listStyle: "none",
           }}
         >
-          {trueCount > 0 ? (
+          {list.length > 0 && list.length - counting > 0 ? (
             list.map(
               (item) =>
                 item.mark === true && (
