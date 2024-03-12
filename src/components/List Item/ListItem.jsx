@@ -27,6 +27,12 @@ export default function ListItem({
     handleEditClick();
   };
 
+  const handleSaveKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSaveClick();
+    }
+  };
+
   const handleDeleteClick = () => {
     deleteItem(Inputobj);
   };
@@ -40,7 +46,12 @@ export default function ListItem({
           onChange={handleCheckboxChange}
         />
         {editState === true ? (
-          <input type="text" value={newInput} onChange={handleEditChange} />
+          <input
+            type="text"
+            value={newInput}
+            onChange={handleEditChange}
+            onKeyDown={handleSaveKeyDown}
+          />
         ) : (
           <span>{Inputobj.inputtext}</span>
         )}
