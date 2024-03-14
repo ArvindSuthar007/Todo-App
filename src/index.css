@@ -1,6 +1,16 @@
+@font-face {
+  font-family: MainFont;
+  src: url(./components/resources/MainFont.ttf) format("truetype");
+}
+@font-face {
+  font-family: SecondaryFont;
+  src: url(./src/components/resources/SecondaryFont.ttf) format("truetype");
+}
+
 :root {
   margin: 0 0 0 0;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #FFF8E6;
+  font-family: SecondaryFont, Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  background-color: #fff8e6;
   color: #333333;
 }
