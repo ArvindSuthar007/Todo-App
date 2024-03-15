@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import TodoForm from "./components/TodoForm/TodoForm";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/Todo List/TodoList";
 import DialogBox from "./components/DialogBox";
 import NewParticles from "./components/NewParticles";
 import Footer from "./components/Footer/Footer";

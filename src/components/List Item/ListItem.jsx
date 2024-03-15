@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./ListItem.css";
+import save_icon from "../resources/save_icon.png";
+import edit_icon from "../resources/edit_icon.png";
+import delete_icon from "../resources/delete_icon.png";
 
 export default function ListItem({
   Inputobj,
@@ -51,6 +54,7 @@ export default function ListItem({
             value={newInput}
             onChange={handleEditChange}
             onKeyDown={handleSaveKeyDown}
+            id="Editer"
           />
         ) : (
           <span>{Inputobj.inputtext}</span>
@@ -59,12 +63,18 @@ export default function ListItem({
 
       <div className="buttons-wrapper">
         {editState === true ? (
-          <button onClick={handleSaveClick}>Save</button>
+          <button onClick={handleSaveClick}>
+            <img src={save_icon} alt="Save" width="30px" height="30px" />
+          </button>
         ) : (
-          <button onClick={handleEditClick}>Edit</button>
+          <button onClick={handleEditClick}>
+            <img src={edit_icon} alt="Edit" width="30px" height="30px" />
+          </button>
         )}
 
-        <button onClick={handleDeleteClick}>delete</button>
+        <button onClick={handleDeleteClick}>
+          <img alt="Delete" src={delete_icon} width="30px" height="30px" />
+        </button>
       </div>
     </div>
   );

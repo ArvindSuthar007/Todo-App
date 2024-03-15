@@ -31,7 +31,10 @@ const NewParticles = () => {
     () => ({
       background: {
         color: {
-          value: "#000000",
+          value: "#CCE5EC",
+        },
+        opacity: {
+          value: 0,
         },
       },
       fpsLimit: 120,
@@ -48,11 +51,11 @@ const NewParticles = () => {
         },
         modes: {
           push: {
-            quantity: 4,
+            quantity: 3,
           },
           repulse: {
             distance: 100,
-            duration: 0.5,
+            duration: 0.4,
           },
         },
       },
@@ -62,14 +65,14 @@ const NewParticles = () => {
           direction: "bottom",
           enable: true,
           outModes: "out",
-          speed: 2,
+          speed: 3,
         },
         number: {
           density: {
             enable: true,
             area: 800,
           },
-          value: 400,
+          value: 300,
         },
         opacity: {
           value: 0.98,

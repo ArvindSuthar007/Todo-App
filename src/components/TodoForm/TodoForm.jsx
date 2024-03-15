@@ -1,4 +1,5 @@
 import { useState } from "react";
+import add_icon from "../resources/add_icon.png";
 import "./TodoForm.css";
 
 export default function TodoForm({ addItem }) {
@@ -31,9 +32,12 @@ export default function TodoForm({ addItem }) {
         value={inputValue}
         onChange={inputChangeTask}
         onKeyDown={keypress}
+        maxLength="130"
       />
       <span> </span>
-      <button onClick={handleSubmitClick}>Enter</button>
+      <button onClick={handleSubmitClick}>
+        <img src={add_icon} alt="Add" width="30px" height="30px" />
+      </button>
     </div>
   );
 }
