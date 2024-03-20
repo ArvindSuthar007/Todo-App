@@ -1,6 +1,8 @@
+import "./NavBar.css";
+
 export default function NavBar() {
   return (
-    <>
+    <div className="NavBar-container">
       <h1
         style={{
           fontFamily: "MainFont, sans-serif",
@@ -9,6 +11,7 @@ export default function NavBar() {
       >
         ToDo App
       </h1>
-    </>
+      <h1 id="Contact">Contact</h1>
+    </div>
   );
 }

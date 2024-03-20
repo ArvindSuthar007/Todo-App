@@ -27,14 +27,13 @@ export default function TodoForm({ addItem }) {
   return (
     <div className="search-container">
       <input
-        type="search"
+        type="text"
         placeholder="enter items here . . ."
         value={inputValue}
         onChange={inputChangeTask}
         onKeyDown={keypress}
         maxLength="130"
       />
-      <span> </span>
       <button onClick={handleSubmitClick}>
         <img src={add_icon} alt="Add" width="30px" height="30px" />
       </button>

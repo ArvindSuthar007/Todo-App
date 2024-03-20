@@ -1,0 +1,8 @@
+.NavBar-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBar-container #Contact {
+  cursor: pointer;
+}

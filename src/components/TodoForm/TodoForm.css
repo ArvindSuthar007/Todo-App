@@ -2,7 +2,7 @@
   --border-color: transparent;
   --border-size: 0px;
   --height: 3rem;
-  --background-color: rgba(173, 216, 230, 0.548);
+  --background-color: #ffffffda;
 
   display: flex;
   justify-content: center;
@@ -11,9 +11,10 @@
 
 .search-container button {
   border: var(--border-size) solid var(--border-color);
-  background-color: transparent;
+  background-color: var(--background-color);
+  border-radius: 0 1rem 1rem 0;
   height: var(--height);
-
+  padding-right: 0.8rem;
   display: grid;
   place-items: center;
 }
@@ -21,14 +22,22 @@
 .search-container input {
   border: var(--border-size) solid var(--border-color);
   background-color: var(--background-color);
-  border-radius: 1rem;
+  border-radius: 1rem 0 0 1rem;
 
-  color: blueviolet;
-  font-weight: 700;
+  color: black;
+  font-weight: 600;
+  font-size: large;
   width: 50%;
   padding: 0 1rem 0 1rem;
   height: var(--height);
 
   display: grid;
   place-items: center;
+}
+
+.search-container input::placeholder {
+  color: gray;
+}
+.search-container input:focus {
+  outline: none;
 }
