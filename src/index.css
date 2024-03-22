@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: SecondaryFont;
-  src: url(./src/components/resources/SecondaryFont.woff2) format("woff2");
+  src: url(./components/resources/SecondaryFont.woff2) format("woff2");
 }
 
 :root {
