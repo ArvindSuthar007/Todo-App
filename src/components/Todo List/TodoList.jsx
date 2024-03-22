@@ -12,7 +12,7 @@ export default function TodoListUnchecked({
     <div className="whole-list-container">
       <div className="Unchecked-container">
         <div id="title1">
-          Items yet to complete :-
+          Incomplete Items
           <hr />
         </div>
         <ul>
@@ -40,7 +40,7 @@ export default function TodoListUnchecked({
 
       <div className="Checked-container">
         <div id="title2">
-          Completed Items :-
+          Completed Items
           <hr />
         </div>
         <ul>
