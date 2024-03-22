@@ -4,10 +4,26 @@ import TodoForm from "./components/TodoForm/TodoForm";
 import TodoList from "./components/Todo List/TodoList";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const items = [{ key: 1, inputtext: "a random demo text", mark: false }];
 let timeoutId;
 
+const deleting = () =>
+  toast.success("Item deleted", {
+    iconTheme: {
+      primary: "red",
+      secondary: "white",
+    },
+  });
+const editing = () =>
+  toast.success("Item edited", {
+    iconTheme: {
+      primary: "purple",
+      secondary: "white",
+    },
+  });
+const adding = () => toast.success("Item added");
 function App() {
   const [list, setList] = useState(items);
 
@@ -28,6 +44,7 @@ function App() {
     countingUpdater(updatedList);
 
     setList(updatedList);
+    adding();
   };
 
   const EditItem = (key, newtext) => {
@@ -37,6 +54,7 @@ function App() {
         else return item;
       })
     );
+    editing();
   };
 
   const deleteItem = (item) => {
@@ -45,6 +63,7 @@ function App() {
     countingUpdater(updatedList);
 
     setList(updatedList);
+    deleting();
   };
 
   const toggleMark = (key) => {
@@ -73,6 +92,7 @@ function App() {
       />
 
       <Footer />
+      <Toaster position="bottom-right" reverseOrder={true} />
     </>
   );
 }

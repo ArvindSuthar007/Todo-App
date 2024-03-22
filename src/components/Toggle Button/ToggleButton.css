@@ -1,0 +1,47 @@
+.toggle-container {
+  height: 2rem;
+  width: 4rem;
+  overflow: hidden;
+  position: relative;
+}
+.toggle-container #toggle-slider {
+  display: none;
+}
+
+.toggle-container #toggle-slider ~ label {
+  content: "";
+  width: 4rem;
+  height: 2rem;
+
+  background-color: #ffffff80;
+  border-radius: 4rem;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-container #toggle-slider:checked ~ label {
+  background-color: #00000080;
+}
+
+.toggle-container #toggle-slider ~ label::after {
+  content: "";
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+
+  background-color: #000000e0;
+  border-radius: 4rem;
+  position: absolute;
+  top: 12%;
+  left: 5%;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-container #toggle-slider:checked ~ label::after {
+  background-color: #ffffffe0;
+  transform: translateX(2rem);
+}
