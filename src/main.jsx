@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import NewParticles from "./components/NewParticles";
+import SnowParticles from "./components/Particles/SnowParticles.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         overflow: "hidden",
       }}
     >
-      <NewParticles />
+      <SnowParticles />
     </div>
   </React.StrictMode>
 );

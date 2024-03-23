@@ -7,8 +7,9 @@ import "./App.css";
 import toast, { Toaster } from "react-hot-toast";
 
 const items = [{ key: 1, inputtext: "a random demo text", mark: false }];
-let timeoutId;
+let timeoutId; //pending: convert to useReff ------->
 
+//toast notifications
 const deleting = () =>
   toast.success("Item deleted", {
     iconTheme: {
@@ -24,12 +25,14 @@ const editing = () =>
     },
   });
 const adding = () => toast.success("Item added");
-function App() {
-  const [list, setList] = useState(items);
 
-  const [listKeyCount, setListKeyCount] = useState(2);
+export default function App() {
+  const [list, setList] = useState(items); //list update re-render
+
+  const [listKeyCount, setListKeyCount] = useState(2); //list key sequencer
+
+  //updates no. of false-marked-items by taking list as input
   const [falseMarkListCount, setFalseMarkListCount] = useState(1);
-
   const countingUpdater = (List) => {
     setFalseMarkListCount(List.filter((i) => !i.mark).length);
   };
@@ -46,7 +49,6 @@ function App() {
     setList(updatedList);
     adding();
   };
-
   const EditItem = (key, newtext) => {
     setList(
       list.map((item) => {
@@ -56,7 +58,6 @@ function App() {
     );
     editing();
   };
-
   const deleteItem = (item) => {
     const updatedList = list.filter((i) => i.key !== item.key);
 
@@ -66,6 +67,7 @@ function App() {
     deleting();
   };
 
+  //updates the list every-time checkbox-marked/unmarked
   const toggleMark = (key) => {
     const updatedList = list.map((item) => {
       if (item.key === key) return { ...item, mark: !item.mark };
@@ -92,9 +94,9 @@ function App() {
       />
 
       <Footer />
+
+      {/* Adds & positions: notifications to  DOM */}
       <Toaster position="bottom-right" reverseOrder={true} />
     </>
   );
 }
-
-export default App;

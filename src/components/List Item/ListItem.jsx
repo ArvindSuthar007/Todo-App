@@ -10,34 +10,35 @@ export default function ListItem({
   toggleMark,
   EditItem,
 }) {
-  const [editState, setEditState] = useState(false);
-  const [newInput, setNewInput] = useState(Inputobj.inputtext);
-
+  //clicks functions passed from App.jsx {toggleMark && deleteItem}
   const handleCheckboxChange = () => {
     toggleMark(Inputobj.key);
   };
+  const handleDeleteClick = () => {
+    deleteItem(Inputobj);
+  };
 
+  //re-render: on edit-click
+  const [editState, setEditState] = useState(false);
   const handleEditClick = () => {
     setEditState(!editState);
   };
 
+  //holds new input-box-values
+  const [newInput, setNewInput] = useState(Inputobj.inputtext);
   const handleEditChange = (e) => {
     setNewInput(e.target.value);
   };
 
+  //updates item in main-list by EditItem{passed from App.jsx} then setEditState(false)
   const handleSaveClick = () => {
     EditItem(Inputobj.key, newInput);
     handleEditClick();
   };
-
   const handleSaveKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSaveClick();
     }
-  };
-
-  const handleDeleteClick = () => {
-    deleteItem(Inputobj);
   };
 
   return (
@@ -48,6 +49,8 @@ export default function ListItem({
           checked={Inputobj.mark}
           onChange={handleCheckboxChange}
         />
+
+        {/* based on editstate input-box or text renders */}
         {editState === true ? (
           <input
             type="text"
@@ -62,6 +65,7 @@ export default function ListItem({
       </div>
 
       <div className="buttons-wrapper">
+        {/* based on editstae renders: either save or edit button */}
         {editState === true ? (
           <button onClick={handleSaveClick}>
             <img src={save_icon} alt="Save" width="30px" height="30px" />

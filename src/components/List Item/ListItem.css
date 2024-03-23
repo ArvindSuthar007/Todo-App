@@ -1,15 +1,13 @@
 .listItem-container {
+  margin: 1px 0 1px 0;
   width: 100%;
   min-height: 3rem;
-  margin: 1px 0 1px 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 2rem;
-
   border: 3px solid #ffffff90;
+  border-radius: 2rem;
   transition: all 0.5s ease-out;
 }
 .listItem-container:hover {
@@ -17,43 +15,42 @@
   border: 3px solid #fff;
 }
 
-.checkbox-text-wrapper {
-  width: 80%;
+.listItem-container > .checkbox-text-wrapper {
   padding-left: 1rem;
-
+  width: 80%;
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: 1.6rem 1fr;
+
   align-items: center;
   grid-column-gap: 1rem;
 }
-.checkbox-text-wrapper input {
-  border: 1px solid transparent;
-  background-color: transparent;
+.checkbox-text-wrapper > input {
   height: 2rem;
+
+  background-color: transparent;
+  border: 1px solid transparent;
 
   font-weight: 600;
   font-size: 0.96rem;
 }
-.checkbox-text-wrapper span {
-  overflow: hidden;
-  overflow-wrap: break-word;
-
+.checkbox-text-wrapper > span {
   font-size: 1.2rem;
   font-weight: 600;
+
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .buttons-wrapper {
   padding-right: 1rem;
-
   display: flex;
   justify-content: space-evenly;
 }
-.buttons-wrapper button {
+.buttons-wrapper > button {
   background-color: transparent;
   border: none;
 }
-
 .buttons-wrapper > button > img {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(56deg)
     brightness(106%) contrast(101%);

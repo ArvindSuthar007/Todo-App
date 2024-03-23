@@ -2,61 +2,56 @@
   --title-text-color: #fff;
   --background-color: #7ac4f5b9;
 
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   column-gap: 2rem;
-  margin-top: 2rem;
 }
 
-.Checked-container,
-.Unchecked-container {
+.container {
   width: 40%;
   height: 53.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   background-color: var(--background-color);
   border-radius: 2rem;
 
   overflow: hidden;
-
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.whole-list-container .Unchecked-container #title1,
-.whole-list-container .Checked-container #title2 {
+.container > #title {
+  padding: 1rem;
+
   font-size: 1.7rem;
   font-weight: 1000;
-
-  padding: 1rem;
-  position: relative;
-
   color: var(--title-text-color);
+
+  position: relative;
 }
-.whole-list-container .Unchecked-container #title1 hr,
-.whole-list-container .Checked-container #title2 hr {
+.container > #title > hr {
   width: 8rem;
 
   &::after {
     content: "";
     width: 0.5rem;
     aspect-ratio: 1/1;
-    background-color: #fff;
     position: absolute;
-    bottom: 30%;
+    bottom: 29%;
     left: 50%;
+
+    background-color: #fff;
     transform: rotate(45deg);
   }
 }
 
-.Unchecked-container ul,
-.Checked-container ul {
+.container > ul {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   height: 80%;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,24 +60,19 @@
   scrollbar-width: none;
   list-style: none;
 }
-
-.Unchecked-container ul li,
-.Checked-container ul li {
+.container > ul > li {
   width: 90%;
 }
-
-.Unchecked-container ul #empty-message,
-.Checked-container ul #empty-message {
+.container > ul > #empty-message {
   height: 80%;
-
   display: flex;
   justify-content: center;
   align-items: center;
+}
+ul > #empty-message > h2 {
+  transition: all 0.5s ease-in-out;
 
-  h2 {
-    transition: all 0.5s ease-in-out;
-    &:hover {
-      transform: scale(1.3);
-    }
+  &:hover {
+    transform: scale(1.3);
   }
 }

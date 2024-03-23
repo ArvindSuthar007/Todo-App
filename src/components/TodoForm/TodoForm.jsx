@@ -3,14 +3,16 @@ import add_icon from "../resources/add_icon.png";
 import "./TodoForm.css";
 
 export default function TodoForm({ addItem }) {
+  //re-render: on input-box value change
   const [inputValue, setInputValue] = useState("");
-
   const inputChangeTask = (e) => {
     setInputValue(e.target.value);
   };
 
+  //handles input-box submission then empty it
   const handleSubmitClick = () => {
-    const updatedValue = inputValue.trim();
+    const updatedValue = inputValue.trim(); //trim: empty-spaces handle
+
     if (updatedValue !== "") {
       const obj = { key: null, inputtext: updatedValue, mark: false };
       addItem(obj);
@@ -19,7 +21,6 @@ export default function TodoForm({ addItem }) {
       setInputValue("");
     }
   };
-
   function keypress(event) {
     if (event.key === "Enter") handleSubmitClick();
   }
