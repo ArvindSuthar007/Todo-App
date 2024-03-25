@@ -2,7 +2,6 @@ import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import TodoForm from "./components/TodoForm/TodoForm";
 import TodoList from "./components/Todo List/TodoList";
-import Footer from "./components/Footer/Footer";
 import "./App.css";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -80,7 +79,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className="app-container">
       <NavBar />
 
       <TodoForm addItem={addItem} />
@@ -93,10 +92,8 @@ export default function App() {
         falseMarkListCount={falseMarkListCount}
       />
 
-      <Footer />
-
       {/* Adds & positions: notifications to  DOM */}
       <Toaster position="bottom-right" reverseOrder={true} />
-    </>
+    </div>
   );
 }

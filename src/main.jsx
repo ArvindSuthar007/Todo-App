@@ -6,16 +6,17 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
     <div
       style={{
-        position: "relative",
+        position: "fixed",
         width: "100vw",
         height: "100vh",
+        zIndex: "-5",
         overflow: "hidden",
       }}
     >
       <SnowParticles />
     </div>
+    <App />
   </React.StrictMode>
 );

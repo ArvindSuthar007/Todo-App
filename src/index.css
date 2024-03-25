@@ -20,3 +20,14 @@ body::-webkit-scrollbar {
   background-color: #0e6baa;
   color: #fff;
 }
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 15px;
+  }
+}
+@media (max-width: 475px) {
+  :root {
+    font-size: 14px;
+  }
+}

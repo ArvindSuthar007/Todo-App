@@ -40,19 +40,12 @@ const SnowParticles = () => {
       fpsLimit: 120,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onHover: {
             enable: true,
             mode: "repulse",
           },
         },
         modes: {
-          push: {
-            quantity: 3,
-          },
           repulse: {
             distance: 100,
             duration: 0.4,
@@ -99,22 +92,11 @@ const SnowParticles = () => {
 
   if (init) {
     return (
-      <div
-        style={{
-          position: "absolute",
-          top: "0",
-          left: "0",
-          width: "100%",
-          height: "100%",
-          zIndex: "-1",
-        }}
-      >
-        <Particles
-          id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={options}
-        />
-      </div>
+      <Particles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
+        options={options}
+      />
     );
   }
 
